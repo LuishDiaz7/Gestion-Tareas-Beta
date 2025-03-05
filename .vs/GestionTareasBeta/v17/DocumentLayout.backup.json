@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\gestiontareasbeta\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|solutionrelative:gestiontareasbeta\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|c:\\users\\luish\\onedrive\\documents\\herramientas de programacion iii\\gestiontareasbeta\\gestiontareasbeta\\tasksforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|solutionrelative:gestiontareasbeta\\tasksforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\gestiontareasbeta\\tasksforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|solutionrelative:gestiontareasbeta\\tasksforms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\gestiontareasbeta\\categoriesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|solutionrelative:gestiontareasbeta\\categoriesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|c:\\users\\luish\\onedrive\\documents\\herramientas de programacion iii\\gestiontareasbeta\\gestiontareasbeta\\tasksforms.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|solutionrelative:gestiontareasbeta\\tasksforms.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\gestiontareasbeta\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -15,12 +27,20 @@
       "RelativeMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|solutionrelative:gestiontareasbeta\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|c:\\users\\luish\\onedrive\\documents\\herramientas de programacion iii\\gestiontareasbeta\\gestiontareasbeta\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|solutionrelative:gestiontareasbeta\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|c:\\users\\luish\\onedrive\\documents\\herramientas de programacion iii\\gestiontareasbeta\\gestiontareasbeta\\context\\categories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|solutionrelative:gestiontareasbeta\\context\\categories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\gestiontareasbeta\\tasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|solutionrelative:gestiontareasbeta\\tasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|c:\\users\\luish\\onedrive\\documents\\herramientas de programacion iii\\gestiontareasbeta\\gestiontareasbeta\\context\\statuses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|solutionrelative:gestiontareasbeta\\context\\statuses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\gestiontareasbeta\\categoriesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|solutionrelative:gestiontareasbeta\\categoriesform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\gestiontareasbeta\\context\\tasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8248A36B-1EE2-4728-88F5-9D8353CA3C18}|GestionTareasBeta\\GestionTareasBeta.csproj|solutionrelative:gestiontareasbeta\\context\\tasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,49 +50,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\Form1.cs",
-              "RelativeDocumentMoniker": "GestionTareasBeta\\Form1.cs",
-              "ToolTip": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\Form1.cs",
-              "RelativeToolTip": "GestionTareasBeta\\Form1.cs",
-              "ViewState": "AgIAACUBAAAAAAAAAAAowC4BAAAgAAAAAAAAAA==",
+              "Title": "TasksForms.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\TasksForms.Designer.cs",
+              "RelativeDocumentMoniker": "GestionTareasBeta\\TasksForms.Designer.cs",
+              "ToolTip": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\TasksForms.Designer.cs",
+              "RelativeToolTip": "GestionTareasBeta\\TasksForms.Designer.cs",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAtwJsAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T22:55:32.664Z",
+              "WhenOpened": "2025-03-05T21:45:38.492Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Tasks.cs",
-              "DocumentMoniker": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\Tasks.cs",
-              "RelativeDocumentMoniker": "GestionTareasBeta\\Tasks.cs",
-              "ToolTip": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\Tasks.cs",
-              "RelativeToolTip": "GestionTareasBeta\\Tasks.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAswFUAAAASAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "Statuses.cs",
+              "DocumentMoniker": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\Context\\Statuses.cs",
+              "RelativeDocumentMoniker": "GestionTareasBeta\\Context\\Statuses.cs",
+              "ToolTip": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\Context\\Statuses.cs",
+              "RelativeToolTip": "GestionTareasBeta\\Context\\Statuses.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAwCEAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T18:53:36.823Z",
+              "WhenOpened": "2025-03-05T21:27:35.45Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\Form1.cs",
-              "RelativeDocumentMoniker": "GestionTareasBeta\\Form1.cs",
-              "ToolTip": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\Form1.cs [Design]",
-              "RelativeToolTip": "GestionTareasBeta\\Form1.cs [Design]",
+              "DocumentIndex": 1,
+              "Title": "TasksForms.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\TasksForms.cs",
+              "RelativeDocumentMoniker": "GestionTareasBeta\\TasksForms.cs",
+              "ToolTip": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\TasksForms.cs [Design]",
+              "RelativeToolTip": "GestionTareasBeta\\TasksForms.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-21T21:14:24.322Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "LoginForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\LoginForm.cs",
               "RelativeDocumentMoniker": "GestionTareasBeta\\LoginForm.cs",
@@ -84,15 +104,79 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "LoginForm.cs",
               "DocumentMoniker": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\LoginForm.cs",
               "RelativeDocumentMoniker": "GestionTareasBeta\\LoginForm.cs",
               "ToolTip": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\LoginForm.cs",
               "RelativeToolTip": "GestionTareasBeta\\LoginForm.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACcAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAEYAAAAAAAAAAIAwwDsAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-23T00:45:26.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CategoriesForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\CategoriesForm.cs",
+              "RelativeDocumentMoniker": "GestionTareasBeta\\CategoriesForm.cs",
+              "ToolTip": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\CategoriesForm.cs [Design]",
+              "RelativeToolTip": "GestionTareasBeta\\CategoriesForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T17:42:10.264Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TasksForms.cs",
+              "DocumentMoniker": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\TasksForms.cs",
+              "RelativeDocumentMoniker": "GestionTareasBeta\\TasksForms.cs",
+              "ToolTip": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\TasksForms.cs",
+              "RelativeToolTip": "GestionTareasBeta\\TasksForms.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAOsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T20:07:26.811Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Categories.cs",
+              "DocumentMoniker": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\Context\\Categories.cs",
+              "RelativeDocumentMoniker": "GestionTareasBeta\\Context\\Categories.cs",
+              "ToolTip": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\Context\\Categories.cs",
+              "RelativeToolTip": "GestionTareasBeta\\Context\\Categories.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAowEYAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T16:51:11.388Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CategoriesForm.cs",
+              "DocumentMoniker": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\CategoriesForm.cs",
+              "RelativeDocumentMoniker": "GestionTareasBeta\\CategoriesForm.cs",
+              "ToolTip": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\CategoriesForm.cs",
+              "RelativeToolTip": "GestionTareasBeta\\CategoriesForm.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAADEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T05:52:16.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Tasks.cs",
+              "DocumentMoniker": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\Context\\Tasks.cs",
+              "RelativeDocumentMoniker": "GestionTareasBeta\\Context\\Tasks.cs",
+              "ToolTip": "C:\\Users\\luish\\OneDrive\\Documents\\Herramientas de Programacion III\\GestionTareasBeta\\GestionTareasBeta\\Context\\Tasks.cs",
+              "RelativeToolTip": "GestionTareasBeta\\Context\\Tasks.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAswC0AAACVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T18:53:36.823Z",
               "EditorCaption": ""
             }
           ]

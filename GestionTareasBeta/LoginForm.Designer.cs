@@ -31,7 +31,7 @@ namespace GestionTareasBeta
         private void InitializeComponent()
         {
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtUserOrEmail = new System.Windows.Forms.TextBox();
             this.btnLogIn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -54,17 +54,17 @@ namespace GestionTareasBeta
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
-            // txtUsername
+            // txtUserOrEmail
             // 
-            this.txtUsername.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtUsername.Location = new System.Drawing.Point(241, 134);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
-            this.txtUsername.Multiline = true;
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(261, 30);
-            this.txtUsername.TabIndex = 0;
-            this.txtUsername.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
+            this.txtUserOrEmail.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserOrEmail.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtUserOrEmail.Location = new System.Drawing.Point(241, 134);
+            this.txtUserOrEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUserOrEmail.Multiline = true;
+            this.txtUserOrEmail.Name = "txtUserOrEmail";
+            this.txtUserOrEmail.Size = new System.Drawing.Size(261, 30);
+            this.txtUserOrEmail.TabIndex = 0;
+            this.txtUserOrEmail.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
             // 
             // btnLogIn
             // 
@@ -151,7 +151,7 @@ namespace GestionTareasBeta
             this.centerPanel.Controls.Add(this.txtPassword);
             this.centerPanel.Controls.Add(this.exit);
             this.centerPanel.Controls.Add(this.label1);
-            this.centerPanel.Controls.Add(this.txtUsername);
+            this.centerPanel.Controls.Add(this.txtUserOrEmail);
             this.centerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.centerPanel.Location = new System.Drawing.Point(0, 0);
             this.centerPanel.Name = "centerPanel";
@@ -186,9 +186,9 @@ namespace GestionTareasBeta
             this.label3.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(237, 97);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 21);
+            this.label3.Size = new System.Drawing.Size(157, 21);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Username:";
+            this.label3.Text = "Email or Username:";
             // 
             // exit
             // 
@@ -230,7 +230,7 @@ namespace GestionTareasBeta
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLogIn;
-        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtUserOrEmail;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Panel leftPanel;
         private System.Windows.Forms.Panel centerPanel;

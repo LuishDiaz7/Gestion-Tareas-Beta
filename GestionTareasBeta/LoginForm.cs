@@ -38,7 +38,7 @@ namespace GestionTareasBeta
 
         private void btnLogIn_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
+            if (string.IsNullOrWhiteSpace(txtUserOrEmail.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
             {
                 MessageBox.Show("Please complete all the fields", "Error",
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -50,11 +50,11 @@ namespace GestionTareasBeta
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT COUNT(*) FROM users WHERE username = @username AND password = @password";
+                    string query = "SELECT 1 FROM Users WHERE (username = @userOrEmail OR email = @userOrEmail) AND password = @password";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@username", txtUsername.Text);
+                        cmd.Parameters.AddWithValue("@userOrEmail", txtUserOrEmail.Text);
                         cmd.Parameters.AddWithValue("@password", txtPassword.Text); 
 
                         int count = (int)cmd.ExecuteScalar();
@@ -65,7 +65,7 @@ namespace GestionTareasBeta
                                           MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             
-                            Form1 mainForm = new Form1();
+                            TasksForms mainForm = new TasksForms();
                             mainForm.Show();
                             this.Hide();
                         }

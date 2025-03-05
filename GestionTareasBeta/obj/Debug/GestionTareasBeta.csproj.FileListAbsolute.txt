@@ -2,10 +2,11 @@ C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareas
 C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\bin\Debug\GestionTareasBeta.exe
 C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\bin\Debug\GestionTareasBeta.pdb
 C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\obj\Debug\GestionTareasBeta.csproj.AssemblyReference.cache
-C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\obj\Debug\GestionTareasBeta.Form1.resources
 C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\obj\Debug\GestionTareasBeta.Properties.Resources.resources
 C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\obj\Debug\GestionTareasBeta.csproj.GenerateResource.cache
 C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\obj\Debug\GestionTareasBeta.csproj.CoreCompileInputs.cache
 C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\obj\Debug\GestionTareasBeta.exe
 C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\obj\Debug\GestionTareasBeta.pdb
 C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\obj\Debug\GestionTareasBeta.LoginForm.resources
+C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\obj\Debug\GestionTareasBeta.CategoriesForm.resources
+C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\obj\Debug\GestionTareasBeta.TasksForms.resources
