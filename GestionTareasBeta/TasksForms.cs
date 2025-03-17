@@ -12,151 +12,251 @@ using System.Windows.Forms;
 
 namespace GestionTareasBeta
 {
-    public partial class TasksForms: Form
+    public partial class TasksForms : Form
     {
         private readonly string connectionString = "server=localhost; Initial Catalog=ProyectoAdo; Integrated Security=True; trustServerCertificate=True;";
-
+        private int currentUserId;
+        private int selectedTaskId = 0;
         private Categories taskCategories;
         private Statuses taskStatuses;
+        private Tasks currentTask = new Tasks();
+        private Categories categoryManager = new Categories();
 
-        public TasksForms()
+        /// <summary>
+        /// Constructor de la clase TasksForms.
+        /// Inicializa el formulario y valida el ID del usuario.
+        /// </summary>
+        /// <param name="userId">ID del usuario actual. Debe ser mayor que 0.</param>
+        /// <exception cref="ArgumentException">Se lanza si el userId no es válido.</exception>
+        public TasksForms(int userId)
         {
             InitializeComponent();
 
-            dtDueDate.CustomFormat = " ";
-            dtDueDate.Format = DateTimePickerFormat.Custom;
-            dtDueDate.ValueChanged += new EventHandler(dtCompletedDate_ValueChanged);
-
-            taskCategories = new Categories();
-            taskStatuses = new Statuses();
-        }
-
-
-        private void dtCompletedDate_ValueChanged(object sender, EventArgs e)
-        {
-            if (dtDueDate.CustomFormat == " ")
+            if (userId <= 0)
             {
-                dtDueDate.CustomFormat = "dd/MM/yyyy";
-            }
-        }
-
-        private void btnMostrarTareas_Click(object sender, EventArgs e)
-        {
-            ListTasks();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-
-            if (string.IsNullOrWhiteSpace(txtTaskName.Text) ||
-            string.IsNullOrWhiteSpace(txtTaskDescription.Text) ||
-            dtDueDate.CustomFormat == " " ||
-            cbTaskStatus.SelectedItem == null)
-            {
-                string mensaje = string.IsNullOrWhiteSpace(txtTaskName.Text) || string.IsNullOrWhiteSpace(txtTaskDescription.Text)
-                    ? "Todos los campos son obligatorios."
-                    : dtDueDate.CustomFormat == " "
-                        ? "Por favor seleccione una fecha válida."
-                        : "Por favor seleccione un estado válido.";
-
-                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Invalid user ID. Please log in again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close(); // Cierra el formulario si el userId no es válido
                 return;
             }
-            else
-            {
-               
-                string task_name = txtTaskName.Text.Trim();
-                string task_description = txtTaskDescription.Text.Trim();
-                string task_category = cbTaskCategory.Text.Trim();
-                string task_status = cbTaskStatus.Text.Trim();
-                DateTime dueDate = dtDueDate.Value;
-                bool is_active = cbTaskStatus.SelectedItem.ToString().Equals("TRUE", StringComparison.OrdinalIgnoreCase);
 
-                Tasks newTask = new Tasks(0, task_name, task_description, task_category, task_status, dueDate);
-                int row = newTask.AddTask();
-
-                if (row == 1)
-                {
-                    MessageBox.Show("The task was added successfully.");
-                    txtTaskName.Text = string.Empty;
-                    txtTaskDescription.Text = string.Empty;
-                    cbTaskCategory.Text = string.Empty;
-                    cbTaskStatus.Text = string.Empty;
-
-                    dtDueDate.Value = DateTime.Today;
-                    dtDueDate.CustomFormat = "dd/MM/yyyy";
-
-                }
-
-                else
-                {
-                    MessageBox.Show("The task couldn't be added.");
-                }
-
-            }
-
-
+            this.currentUserId = userId;
         }
 
-        public void ListTasks()
+        /// <summary>
+        /// Carga los estados de las tareas en el ComboBox correspondiente.
+        /// </summary>
+        /// <exception cref="Exception">Se lanza si ocurre un error al cargar los estados.</exception>
+        private void LoadTaskStatuses()
         {
-            Tasks task = new Tasks();
-            task.DisplayTasks(dgTasks);
+            try
+            {
+                Statuses statuses = new Statuses();
+                statuses.ConfigureStatusesComboBox(cbTaskStatus);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading statuses: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void dgTasks_CellClick(object sender, DataGridViewCellEventArgs e)
+        /// <summary>
+        /// Carga las tareas del usuario actual en el DataGridView.
+        /// </summary>
+        /// <exception cref="Exception">Se lanza si ocurre un error al cargar las tareas.</exception>
+        private void LoadTasks()
         {
-            int index = e.RowIndex;
-
-            if(index == -1 || dgTasks.SelectedCells[1].Value.ToString() == "")
+            try
             {
-                ClearForm();
-
+                dgTasks.DataSource = Tasks.DisplayTasksByUser(currentUserId);
+                FormatTasksGrid();
             }
-            else
+            catch (Exception ex)
             {
-                DataGridViewRow selectedRow = dgTasks.Rows[index];
-                if (selectedRow.Cells[5].Value == null || selectedRow.Cells[0].Value == null)
+                MessageBox.Show("Error loading tasks: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Formatea las columnas del DataGridView que muestra las tareas.
+        /// Ajusta los encabezados y la visibilidad de las columnas.
+        /// </summary>
+        private void FormatTasksGrid()
+        {
+            if (dgTasks.Columns.Count > 0)
+            {
+                dgTasks.Columns["id"].HeaderText = "ID";
+                dgTasks.Columns["task_name"].HeaderText = "Task Name";
+                dgTasks.Columns["task_description"].HeaderText = "Description";
+                dgTasks.Columns["categoryId"].Visible = false;
+                dgTasks.Columns["category_name"].HeaderText = "Category";
+                dgTasks.Columns["userId"].Visible = false;
+                dgTasks.Columns["username"].Visible = false;
+                dgTasks.Columns["statusId"].Visible = false;
+                dgTasks.Columns["statusName"].HeaderText = "Status";
+                dgTasks.Columns["creationDate"].HeaderText = "Creation Date";
+                dgTasks.Columns["dueDate"].HeaderText = "Due Date";
+
+                dgTasks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+        }
+
+        /// <summary>
+        /// Limpia los campos del formulario y restablece los controles a su estado inicial.
+        /// </summary>
+        private void ClearFields()
+        {
+            txtTaskID.Text = string.Empty;
+            txtTaskName.Text = string.Empty;
+            txtTaskDescription.Text = string.Empty;
+
+            if (cbTaskCategory.Items.Count > 0)
+                cbTaskCategory.SelectedIndex = 0;
+
+            if (cbTaskStatus.Items.Count > 0)
+                cbTaskStatus.SelectedIndex = 0;
+
+            dtDueDate.Value = DateTime.Now.AddDays(7);
+
+            selectedTaskId = 0;
+            btnDelete.Enabled = false;
+            btnEdit.Enabled = false;
+            btnAdd.Enabled = true;
+        }
+
+        /// <summary>
+        /// Maneja el evento de clic en el botón "Agregar".
+        /// Valida los campos y agrega una nueva tarea.
+        /// </summary>
+        /// <exception cref="Exception">Se lanza si ocurre un error al agregar la tarea.</exception>
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtTaskName.Text))
                 {
-                    ClearForm();
+                    MessageBox.Show("Please enter a task name", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtTaskName.Focus();
                     return;
                 }
-                txtTaskID.Text = dgTasks.SelectedCells[5].Value?.ToString() ?? string.Empty;
-                txtTaskName.Text = dgTasks.SelectedCells[0].Value?.ToString() ?? string.Empty;
-                txtTaskDescription.Text = dgTasks.SelectedCells[1].Value?.ToString() ?? string.Empty;
-                cbTaskCategory.Text = dgTasks.SelectedCells[2].ToString() ?? string.Empty;
-                cbTaskStatus.Text = dgTasks.SelectedCells[3].ToString() ?? string.Empty;
 
-                DateTime tempDate;
-
-                var completedValue = dgTasks.SelectedCells[4].Value;
-                if (completedValue is DateTime dateTime2)
-                    dtDueDate.Value = dateTime2;
-                else if (DateTime.TryParse(completedValue?.ToString(), out tempDate))
+                if (cbTaskCategory.SelectedIndex < 0)
                 {
-                    dtDueDate.CustomFormat = "dd/MM/yyyy";
-                    dtDueDate.Value = tempDate;
+                    MessageBox.Show("Please select a category", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cbTaskCategory.Focus();
+                    return;
                 }
 
-                btnAdd.Enabled = false;
-                btnDelete.Enabled = true;
-                btnEdit.Enabled = true;
-            }
+                if (cbTaskStatus.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Please select a status", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cbTaskStatus.Focus();
+                    return;
+                }
 
+                currentTask = new Tasks();
+                currentTask.TaskName = txtTaskName.Text.Trim();
+                currentTask.TaskDescription = txtTaskDescription.Text.Trim();
+                currentTask.CategoryId = Convert.ToInt32(cbTaskCategory.SelectedValue);
+                currentTask.UserId = currentUserId;
+                currentTask.StatusId = Convert.ToInt32(cbTaskStatus.SelectedValue);
+                currentTask.CreationDate = DateTime.Now;
+                currentTask.DueDate = dtDueDate.Value;
+
+                int newId = currentTask.AddTask();
+                bool success = newId > 0;
+                if (success)
+                {
+                    MessageBox.Show("Task created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadTasks();
+                    ClearFields();
+                }
+                else
+                {
+                    MessageBox.Show("Could not create the task", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving task: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en el botón "Editar".
+        /// Valida los campos y actualiza la tarea seleccionada.
+        /// </summary>
+        /// <exception cref="Exception">Se lanza si ocurre un error al editar la tarea.</exception>
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (selectedTaskId <= 0)
+                {
+                    MessageBox.Show("Please select a task first", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtTaskName.Text))
+                {
+                    MessageBox.Show("Please enter a task name", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtTaskName.Focus();
+                    return;
+                }
+
+                if (cbTaskCategory.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Please select a category", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cbTaskCategory.Focus();
+                    return;
+                }
+
+                if (cbTaskStatus.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Please select a status", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cbTaskStatus.Focus();
+                    return;
+                }
+
+                currentTask.Id = selectedTaskId;
+                currentTask.TaskName = txtTaskName.Text.Trim();
+                currentTask.TaskDescription = txtTaskDescription.Text.Trim();
+                currentTask.CategoryId = Convert.ToInt32(cbTaskCategory.SelectedValue);
+                currentTask.StatusId = Convert.ToInt32(cbTaskStatus.SelectedValue);
+                currentTask.DueDate = dtDueDate.Value;
+
+                bool success = currentTask.EditTask();
+                if (success)
+                {
+                    MessageBox.Show("Task updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadTasks();
+                    ClearFields();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating task: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Limpia el formato de un DateTimePicker para que no muestre una fecha predeterminada.
+        /// </summary>
+        /// <param name="dtp">DateTimePicker que se desea limpiar.</param>
         private void ClearDateTimePicker(DateTimePicker dtp)
         {
             dtp.CustomFormat = " ";
             dtp.Format = DateTimePickerFormat.Custom;
         }
 
+        /// <summary>
+        /// Limpia todos los campos del formulario y restablece los controles a su estado inicial.
+        /// </summary>
         public void ClearForm()
         {
             txtTaskID.Clear();
             txtTaskName.Clear();
             txtTaskDescription.Clear();
-            cbTaskCategory.SelectedIndex = -1; 
+            cbTaskCategory.SelectedIndex = -1;
             cbTaskStatus.SelectedIndex = -1;
             ClearDateTimePicker(dtDueDate);
 
@@ -167,86 +267,161 @@ namespace GestionTareasBeta
             txtTaskName.Focus();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            ClearForm();
-        }
-
+        /// <summary>
+        /// Maneja el evento de clic en el botón "Eliminar".
+        /// Elimina la tarea seleccionada después de confirmar con el usuario.
+        /// </summary>
+        /// <exception cref="Exception">Se lanza si ocurre un error al eliminar la tarea.</exception>
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string code = txtTaskID.Text;
-            int id = Convert.ToInt32(code);
-
-            DialogResult confirm = MessageBox.Show("Do you want to delete this task?", "Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            
-            if (confirm == DialogResult.OK)
+            try
             {
-                Tasks task = new Tasks(id);
-                int row = task.DeleteTask();
-
-                if (row == 1)
+                if (selectedTaskId <= 0)
                 {
-                    MessageBox.Show("Task successfully deleted.");
-                    ClearForm();
-                    ListTasks();
+                    MessageBox.Show("Please select a task first", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
-                else
+
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this task?",
+                                                      "Confirm Deletion",
+                                                      MessageBoxButtons.YesNo,
+                                                      MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Could not delete the task.");
+                    currentTask.Id = selectedTaskId;
+                    bool success = currentTask.DeleteTask();
+
+                    if (success)
+                    {
+                        MessageBox.Show("Task deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadTasks();
+                        ClearFields();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Could not delete the task", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
-            else
+            catch (Exception ex)
             {
-                ClearForm();
+                MessageBox.Show("Error deleting task: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Maneja el evento de clic en el botón "Cancelar".
+        /// Limpia los campos del formulario.
+        /// </summary>
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txtTaskID.Text);
-            string taskName = txtTaskName.Text;
-            string taskDescription = txtTaskDescription.Text;
-            string taskCategory = cbTaskCategory.Text;
-            string taskStatus = cbTaskStatus.Text;
-            DateTime dueDate = dtDueDate.Value;
-
-            DialogResult confirm = MessageBox.Show("Do you want to apply the changes? ",
-                "Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-            if (confirm == DialogResult.OK)
-            {
-                Tasks task = new Tasks(id, taskName, taskDescription, taskCategory, taskStatus, dueDate);       
-                int row = task.EditTask();
-                if (row == 1)
-                {
-                    MessageBox.Show("Changes have been made.");
-                    ClearForm();
-                    ListTasks();
-                }
-                else
-                {
-                    MessageBox.Show("The task could not be updated.");
-                }
-            }
-            else
-            {
-                ClearForm();
-            }
-
+            ClearFields();
         }
 
-        private void lbCategories_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Maneja el evento de clic en una celda del DataGridView.
+        /// Carga los datos de la tarea seleccionada en los controles del formulario.
+        /// </summary>
+        /// <exception cref="Exception">Se lanza si ocurre un error al seleccionar la tarea.</exception>
+        private void dgTasks_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            CategoriesForm categoriesForm = new CategoriesForm();
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = dgTasks.Rows[e.RowIndex];
+
+                    selectedTaskId = Convert.ToInt32(row.Cells["id"].Value);
+                    txtTaskID.Text = selectedTaskId.ToString();
+                    txtTaskName.Text = row.Cells["task_name"].Value.ToString();
+                    txtTaskDescription.Text = row.Cells["task_description"].Value.ToString();
+                    cbTaskCategory.SelectedValue = Convert.ToInt32(row.Cells["categoryId"].Value);
+                    cbTaskStatus.SelectedValue = Convert.ToInt32(row.Cells["statusId"].Value);
+
+                    if (row.Cells["DueDate"].Value != DBNull.Value)
+                    {
+                        dtDueDate.Value = Convert.ToDateTime(row.Cells["dueDate"].Value);
+                    }
+                    else
+                    {
+                        dtDueDate.Value = DateTime.Now.AddDays(7);
+                    }
+
+                    currentTask = new Tasks();
+                    currentTask.Id = selectedTaskId;
+                    currentTask.TaskName = txtTaskName.Text;
+                    currentTask.TaskDescription = txtTaskDescription.Text;
+                    currentTask.CategoryId = Convert.ToInt32(cbTaskCategory.SelectedValue);
+                    currentTask.UserId = currentUserId;
+                    currentTask.StatusId = Convert.ToInt32(cbTaskStatus.SelectedValue);
+                    if (row.Cells["CreationDate"].Value != DBNull.Value)
+                        currentTask.CreationDate = Convert.ToDateTime(row.Cells["CreationDate"].Value);
+                    if (row.Cells["DueDate"].Value != DBNull.Value)
+                        currentTask.DueDate = Convert.ToDateTime(row.Cells["DueDate"].Value);
+
+                    btnDelete.Enabled = true;
+                    btnEdit.Enabled = true;
+                    btnAdd.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error selecting task: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Maneja el evento de clic en el botón "Mostrar Tareas".
+        /// Carga las tareas del usuario en el DataGridView.
+        /// </summary>
+        private void btnShowTasks_Click_1(object sender, EventArgs e)
+        {
+            LoadTasks();
+        }
+
+        /// <summary>
+        /// Maneja el evento de clic en el botón "Categorías".
+        /// Abre el formulario de categorías y oculta el formulario actual.
+        /// </summary>
+        private void lbCategories_Click_1(object sender, EventArgs e)
+        {
+            CategoriesForm categoriesForm = new CategoriesForm(currentUserId, this);
             categoriesForm.Show();
-            this.Hide();
+            this.Hide(); // Ocultar en lugar de cerrar
         }
 
+        /// <summary>
+        /// Método que se ejecuta al cargar el formulario.
+        /// Carga los estados de las tareas, las categorías y las tareas del usuario.
+        /// </summary>
         private void TasksForms_Load(object sender, EventArgs e)
         {
-            taskCategories.LoadCategoriesComboBox(cbTaskCategory);
-            taskStatuses.ConfigureStatusesComboBox(cbTaskStatus);
+            try
+            {
+                LoadTaskStatuses();
 
+                Categories categories = new Categories();
+                categories.UserId = this.currentUserId;
+                categories.LoadCategoriesComboBox(cbTaskCategory);
+
+                LoadTaskStatuses();
+                LoadTasks();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar las categorías: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Recarga el ComboBox de categorías con las categorías actualizadas.
+        /// </summary>
+        public void ReloadCategoryComboBox()
+        {
+            Categories categories = new Categories();
+            categories.UserId = currentUserId;
+            categories.LoadCategoriesComboBox(cbTaskCategory);
         }
     }
 }

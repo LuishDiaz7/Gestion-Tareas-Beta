@@ -10,3 +10,7 @@ C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareas
 C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\obj\Debug\GestionTareasBeta.LoginForm.resources
 C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\obj\Debug\GestionTareasBeta.CategoriesForm.resources
 C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\obj\Debug\GestionTareasBeta.TasksForms.resources
+C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\bin\Debug\GestionTareasBeta.exe.manifest
+C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\bin\Debug\GestionTareasBeta.application
+C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\obj\Debug\GestionTareasBeta.exe.manifest
+C:\Users\luish\OneDrive\Documents\Herramientas de Programacion III\GestionTareasBeta\GestionTareasBeta\obj\Debug\GestionTareasBeta.application

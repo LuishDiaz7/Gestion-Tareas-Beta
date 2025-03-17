@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnShowTasks = new System.Windows.Forms.Button();
             this.dgTasks = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -53,20 +52,6 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnShowTasks
-            // 
-            this.btnShowTasks.BackColor = System.Drawing.Color.Orange;
-            this.btnShowTasks.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowTasks.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnShowTasks.Location = new System.Drawing.Point(512, 452);
-            this.btnShowTasks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnShowTasks.Name = "btnShowTasks";
-            this.btnShowTasks.Size = new System.Drawing.Size(367, 44);
-            this.btnShowTasks.TabIndex = 0;
-            this.btnShowTasks.Text = "Show Tasks";
-            this.btnShowTasks.UseVisualStyleBackColor = false;
-            this.btnShowTasks.Click += new System.EventHandler(this.btnMostrarTareas_Click);
-            // 
             // dgTasks
             // 
             this.dgTasks.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
@@ -78,7 +63,7 @@
             this.dgTasks.RowHeadersWidth = 51;
             this.dgTasks.RowTemplate.Height = 24;
             this.dgTasks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgTasks.Size = new System.Drawing.Size(367, 419);
+            this.dgTasks.Size = new System.Drawing.Size(367, 452);
             this.dgTasks.TabIndex = 1;
             this.dgTasks.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTasks_CellClick);
             // 
@@ -186,7 +171,6 @@
             this.dtDueDate.Name = "dtDueDate";
             this.dtDueDate.Size = new System.Drawing.Size(317, 22);
             this.dtDueDate.TabIndex = 5;
-            this.dtDueDate.ValueChanged += new System.EventHandler(this.dtCompletedDate_ValueChanged);
             // 
             // label2
             // 
@@ -335,7 +319,7 @@
             this.lbCategories.Size = new System.Drawing.Size(129, 21);
             this.lbCategories.TabIndex = 15;
             this.lbCategories.Text = "Task Categories";
-            this.lbCategories.Click += new System.EventHandler(this.lbCategories_Click);
+            this.lbCategories.Click += new System.EventHandler(this.lbCategories_Click_1);
             // 
             // TasksForms
             // 
@@ -346,7 +330,6 @@
             this.Controls.Add(this.lbCategories);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgTasks);
-            this.Controls.Add(this.btnShowTasks);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TasksForms";
             this.Text = "Task List App";
@@ -360,8 +343,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnShowTasks;
         private System.Windows.Forms.DataGridView dgTasks;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
